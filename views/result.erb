@@ -1,0 +1,57 @@
+<h3>Place your bet on dice number (1 to 6)</h3>
+<form action='/submit' method='post' class='forms'>
+  <p>
+    <label for="betmoney">Bet Money:</label>
+    <input id="betmoney" name="betmoney" type="number" class="bet-inputs">
+  </p>
+  <p>
+    <label for="bet">On:</label>
+    <select id="bet" name="bet" class="bet-inputs">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+    </select>
+  </p>
+  <input type='submit' value='Bet'>
+</form>
+
+<div class="right-side">
+  <div class="summary">
+    <div class="summary-item">
+      total win
+      <div class="summary-item-number">
+        <%= session[:totalwin] %>
+      </div>
+    </div>
+    <div class="summary-item">
+      total loss
+      <div class="summary-item-number">
+        <%= session[:totalloss] %>
+      </div>
+    </div>
+    <div class="summary-item">
+      total profit
+      <div class="summary-item-number">
+        <%= session[:totalprofit] %>
+      </div>
+    </div>
+  </div>
+  <form action='/logout' method='post' id='logout'>
+    <input type='submit' value='Logout'>
+  </form>
+</div>
+
+<div>
+  <% if not session[:notbetted] %>
+    <% if @notvalidbet %>
+      <h2 class='forms'>Enter a valid bet</h2>
+    <% else %>
+      <h2 class='forms'>dice landed on <%= @dice %>, you <%= session[:result] %> <%= session[:resultmoney] %>
+        dollars</h2>
+    <% end %>
+  <% end %>
+</div>
+

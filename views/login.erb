@@ -1,0 +1,14 @@
+<form action='/authenticate' method='post' class='forms'>
+  username: <input type='text' name='username'><br>
+  <br>
+  password: <input type='password' name='password'><br>
+  <br>
+  <input type='submit' value='login'>
+</form>
+<% if @loginfailure %>
+  <h2 class='forms'> The given username or password is wrong. Please retry.</h2>
+<% end %>
+<% if session[:logoutmessage] %>
+  <h2 class=forms> <%= session[:logoutmessage] %> </h2>
+  <% session[:logoutmessage] = nil %>
+<% end %>
