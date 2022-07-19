@@ -1,0 +1,11 @@
+source 'https://rubygems.org'
+
+gem 'sinatra'
+gem 'sinatra-reloader'
+gem 'webrick'
+gem 'session'
+gem 'dm-core'
+gem 'dm-migrations'
+gem 'dm-sqlite-adapter'
+gem 'data_mapper'
+# gem 'sqlite3-ruby', '1.5.0.rc1'
